@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,7 +32,7 @@ const navItems = [
     ],
   },
   {
-    name: "OUR PRESENCE",   // renamed
+    name: "OUR PRESENCE",
     href: "/operations",
     submenu: [
       { name: "Saudi Arabia", href: "/operations/saudi-arabia" },
@@ -50,13 +49,24 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+  /* Header shadow on scroll */
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  /* Prevent body scroll when mobile menu open */
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -76,19 +86,15 @@ export function Header() {
       </div>
 
       {/* Main Header */}
-      <div
-        className={`bg-background transition-all duration-300 ${
-          isScrolled ? "shadow-industrial" : ""
-        }`}
-      >
+      <div className={`bg-background transition-all duration-300 ${isScrolled ? "shadow-industrial" : ""}`}>
+
         <div className="section-container flex items-center py-4">
 
           {/* Logo */}
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-3 flex-shrink-0">
               <img src={logo} alt="Metluck Group" className="h-12 w-auto" />
-
-              <span className="text-lg font-bold text-topbar text-center leading-tight whitespace-nowrap">
+              <span className="text-lg font-bold text-topbar leading-tight">
                 Metluck <br /> Group
               </span>
             </Link>
@@ -106,7 +112,7 @@ export function Header() {
 
                   <Link
                     to={item.href}
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary whitespace-nowrap cursor-pointer"
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary"
                   >
                     {item.name}
                     {item.submenu && <ChevronDown className="w-3 h-3" />}
@@ -125,7 +131,7 @@ export function Header() {
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className="block px-4 py-3 text-sm hover:bg-muted hover:text-primary transition"
+                            className="block px-4 py-3 text-sm hover:bg-muted hover:text-primary"
                           >
                             {subItem.name}
                           </Link>
@@ -145,10 +151,10 @@ export function Header() {
             <input
               type="text"
               placeholder="Search"
-              className="w-28 px-3 py-1.5 text-sm border border-border rounded bg-background focus:outline-none focus:ring-2 focus:ring-primary/20"
+              className="w-28 px-3 py-1.5 text-sm border border-border rounded"
             />
 
-            <div className="flex items-center gap-1 text-sm font-medium cursor-pointer">
+            <div className="flex items-center gap-1 text-sm font-medium">
               ENG <ChevronDown className="w-3 h-3" />
             </div>
           </div>
@@ -185,11 +191,12 @@ export function Header() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden bg-background border-b border-border"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="lg:hidden fixed top-[120px] left-0 right-0 bottom-0 bg-background overflow-y-auto z-40"
           >
+
             <nav className="section-container py-4 space-y-2">
 
               {navItems.map((item) => (
@@ -222,6 +229,7 @@ export function Header() {
               ))}
 
             </nav>
+
           </motion.div>
         )}
       </AnimatePresence>
