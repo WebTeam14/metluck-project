@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import hero1 from "@/assets/hero-1.jpg";
+import emailjs from "@emailjs/browser"; // ✅ ADDED
 
 const openings = [
   {
@@ -70,22 +71,30 @@ const Careers = () => {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const res = await fetch("http://localhost/api/career-create.php", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    console.log("FORM SUBMITTED"); // ✅ debug
 
-    const result = await res.json();
-    console.log("Career API Response:", result);
+    const templateParams = {
+      name: formData.fullName,     // ✅ mapped correctly
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+      subject: "Job Application",
+      type: "Career Form",
+      position: formData.position,
+    };
 
-    if (result.success) {
+    console.log("Sending EmailJS...", templateParams);
+
+    emailjs.send(
+      "service_udti8fh",      // your service ID
+        "template_tbb7pwu",     // your template ID
+        templateParams,
+        "PJjiIp0BJy7MvDJy8"       // ⚠️ replace with your public key
+    )
+    .then(() => {
+      console.log("SUCCESS ✅");
       toast.success("Application submitted successfully");
 
       setFormData({
@@ -95,20 +104,18 @@ const Careers = () => {
         position: "",
         message: "",
       });
-    } else {
+    })
+    .catch((error) => {
+      console.log("ERROR ❌", error);
       toast.error("Submission failed. Please try again.");
-    }
-  } catch (err) {
-    console.error(err);
-    toast.error("Unable to connect to server");
-  }
-};
-
+    });
+  };
 
   return (
     <div className="min-h-screen">
       <Header />
       <main>
+
         {/* Hero Banner */}
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center mt-[120px]">
           <div className="absolute inset-0">
@@ -148,6 +155,7 @@ const Careers = () => {
                 At Metluck Group, we believe our people are our greatest asset.
               </p>
             </div>
+
             <div className="grid md:grid-cols-3 gap-8">
               {culture.map((item, index) => (
                 <motion.div
@@ -182,6 +190,7 @@ const Careers = () => {
                 Current Openings
               </h2>
             </div>
+
             <div className="grid md:grid-cols-2 gap-6 mb-12">
               {openings.map((job, index) => (
                 <motion.div
@@ -229,6 +238,7 @@ const Careers = () => {
         <section id="apply" className="section-padding bg-background">
           <div className="section-container">
             <div className="max-w-3xl mx-auto">
+
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-heading font-bold text-foreground mb-4">
                   Apply Now
@@ -239,11 +249,10 @@ const Careers = () => {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
+
                 <div className="grid md:grid-cols-2 gap-6">
+
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Full Name *
-                    </label>
                     <Input
                       required
                       value={formData.fullName}
@@ -251,10 +260,8 @@ const Careers = () => {
                       placeholder="Enter your full name"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email Address *
-                    </label>
                     <Input
                       type="email"
                       required
@@ -263,10 +270,8 @@ const Careers = () => {
                       placeholder="Enter email address"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Phone Number *
-                    </label>
                     <Input
                       type="tel"
                       required
@@ -275,10 +280,8 @@ const Careers = () => {
                       placeholder="Enter phone number"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Position Applied For *
-                    </label>
                     <Input
                       required
                       value={formData.position}
@@ -286,27 +289,28 @@ const Careers = () => {
                       placeholder="Enter position"
                     />
                   </div>
+
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Cover Message
-                  </label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about yourself..."
-                    rows={4}
-                  />
-                </div>
-                <div className="flex items-center justify-center">
+
+                <Textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Tell us about yourself..."
+                  rows={4}
+                />
+
+                <div className="flex justify-center">
                   <Button type="submit" className="btn-hero">
                     Submit Application
                   </Button>
                 </div>
+
               </form>
+
             </div>
           </div>
         </section>
+
       </main>
       <Footer />
     </div>

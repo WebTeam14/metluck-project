@@ -7,15 +7,15 @@ import heroCivil from "@/assets/civil.jpg";
 
 /* Civil Images */
 import buildingImg from "@/assets/services/civil/building.jpeg";
-import infrastructureImg from "@/assets/services/civil/infrastructure.jpeg";
-import roadImg from "@/assets/services/civil/road-earthwork.jpeg";
-import electricalImg from "@/assets/services/civil/electrical-mechanical.jpeg";
-import residentialImg from "@/assets/services/civil/residential.jpeg";
-import sitePrepImg from "@/assets/services/civil/site-preparation.jpeg";
-import foundationImg from "@/assets/services/civil/foundation.jpeg";
-import masonryImg from "@/assets/services/civil/masonry.jpeg";
-import utilitiesImg from "@/assets/services/civil/utilities.jpeg";
-import securityImg from "@/assets/services/civil/security.jpeg";
+import infrastructureImg from "@/assets/services/civil/infrastructure.jpg";
+import roadImg from "@/assets/services/civil/road-earthwork.png";
+import electricalImg from "@/assets/services/civil/electrical-mechanical.png";
+import residentialImg from "@/assets/services/civil/residential.png";
+import sitePrepImg from "@/assets/services/civil/site-preparation.png";
+import foundationImg from "@/assets/services/civil/foundation.png";
+import masonryImg from "@/assets/services/civil/masonry.png";
+import utilitiesImg from "@/assets/services/civil/utilities.png";
+import securityImg from "@/assets/services/civil/security.png";
 
 const services = [
 {

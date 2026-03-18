@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -17,7 +16,7 @@ export function AboutSection() {
   return (
     <section ref={ref} className="section-padding bg-background">
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
           {/* Left Content */}
           <motion.div
@@ -39,15 +38,29 @@ export function AboutSection() {
               Kingdom and India.
             </p>
 
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               Since our establishment in 2008, we have been supporting major industries
               with reliable, safe, and innovative solutions aligned with Aramco and SABIC
               standards. With over 10+ years of experience, we have built a reputation
               for quality, safety, and timely project delivery.
             </p>
 
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              We provide integrated services including engineering support, industrial services,
+              manufacturing assistance, equipment rental, civil construction, and facility
+              management. Our approach combines technical expertise with efficient project
+              management to meet the operational and infrastructure needs of modern industries.
+            </p>
+
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              With operations across India, Saudi Arabia, and the Middle East,
+              METLUCK continues to support industrial growth while building
+              strong, long-term partnerships with clients.
+            </p>
+
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6 mb-8">
+
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Award className="w-6 h-6 text-primary" />
@@ -67,12 +80,15 @@ export function AboutSection() {
                   <span className="text-sm text-muted-foreground">Team Members</span>
                 </div>
               </div>
+
             </div>
 
             <Link to="/about" className="btn-hero">
               Learn More About Us
             </Link>
+
           </motion.div>
+
 
           {/* Right Content */}
           <motion.div
@@ -82,17 +98,15 @@ export function AboutSection() {
             className="space-y-6"
           >
 
-            {/* ===== Image Layout (Fixed) ===== */}
+            {/* Image Layout */}
             <div className="grid grid-cols-2 gap-4">
 
-              {/* Large Image */}
               <img
                 src={picture0}
                 alt="Metluck Industrial"
                 className="col-span-2 w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform"
               />
 
-              {/* Small Images */}
               <img
                 src={picture1}
                 alt="Metluck Building"
@@ -107,66 +121,52 @@ export function AboutSection() {
 
             </div>
 
-            {/* Mission Card */}
+
+            {/* Mission */}
             <div className="card-industrial p-8">
               <div className="flex items-start gap-4">
+
                 <div className="service-icon flex-shrink-0">
                   <Target className="w-8 h-8 text-primary-foreground" />
                 </div>
+
                 <div>
                   <h3 className="text-xl font-heading font-bold text-foreground mb-3">
                     Our Mission
                   </h3>
+
                   <p className="text-muted-foreground leading-relaxed">
-                    To deliver high-quality engineering, construction, and industrial solutions
-                    through innovation, skilled manpower, and global standards while ensuring
-                    safety, sustainability, and client satisfaction.
+                    To deliver world-class engineering, construction, and maintenance solutions for the oil, gas, and petrochemical industries in Asia. We strive for excellence in every project through a strong commitment to safety, quality, innovation, and sustainability—ensuring lasting value and customer satisfaction .
                   </p>
                 </div>
+
               </div>
             </div>
 
-            {/* Vision Card */}
+
+            {/* Vision */}
             <div className="card-industrial p-8">
               <div className="flex items-start gap-4">
+
                 <div className="service-icon flex-shrink-0">
                   <Eye className="w-8 h-8 text-primary-foreground" />
                 </div>
+
                 <div>
                   <h3 className="text-xl font-heading font-bold text-foreground mb-3">
                     Our Vision
                   </h3>
+
                   <p className="text-muted-foreground leading-relaxed">
-                    To become a globally trusted industrial and infrastructure partner,
-                    recognized for technical excellence, reliability, and long-term value creation.
+                    To be the leading and most trusted integrated service partner in the region’s oil and gas sector. We aim to drive industrial progress through superior project execution, innovative solutions, and a firm dedication to integrity, excellence, and sustainable growth.
                   </p>
                 </div>
-              </div>
-            </div>
 
-            {/* Presence */}
-            <div className="gradient-primary rounded-lg p-8 text-primary-foreground">
-              <h3 className="text-xl font-heading font-bold mb-4">Our Presence</h3>
-
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <span className="block text-2xl font-heading font-bold">KSA</span>
-                  <span className="text-sm text-primary-foreground/70">Saudi Arabia</span>
-                </div>
-
-                <div>
-                  <span className="block text-2xl font-heading font-bold">IND</span>
-                  <span className="text-sm text-primary-foreground/70">India</span>
-                </div>
-
-                <div>
-                  <span className="block text-2xl font-heading font-bold">ME</span>
-                  <span className="text-sm text-primary-foreground/70">Middle East</span>
-                </div>
               </div>
             </div>
 
           </motion.div>
+
         </div>
       </div>
     </section>

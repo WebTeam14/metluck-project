@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Building, Wrench, Users } from "lucide-react";
-import hero3 from "@/assets/hero-3.jpg";
+import middle from "@/assets/middle-east.png";
 
 const services = [
   { icon: Building, title: "Industrial Projects", description: "Large-scale industrial construction and maintenance projects." },
@@ -28,7 +28,7 @@ const MiddleEastOperations = () => {
         {/* Hero Banner */}
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center mt-[120px]">
           <div className="absolute inset-0">
-            <img src={hero3} alt="Middle East Operations" className="w-full h-full object-cover" />
+            <img src={middle} alt="Middle East Operations" className="w-full h-full object-cover" />
             <div className="absolute inset-0 gradient-overlay" />
           </div>
           <div className="relative z-10 text-center text-primary-foreground">
@@ -86,7 +86,7 @@ const MiddleEastOperations = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <img src={hero3} alt="Middle East Operations" className="rounded-lg shadow-industrial w-full" />
+                <img src={middle} alt="Middle East Operations" className="rounded-lg shadow-industrial w-full" />
               </motion.div>
             </div>
 

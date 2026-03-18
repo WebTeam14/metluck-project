@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Building2, Home, Layers } from "lucide-react";
-import hero2 from "@/assets/hero-2.jpg";
+import hero2 from "@/assets/hero-2.jpeg";
 
 const projects = [
   { icon: Building2, title: "Commercial Projects", description: "Modern commercial complexes and office buildings." },

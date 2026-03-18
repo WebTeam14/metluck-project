@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import hero2 from "@/assets/hero-2.jpg";
+import hero21 from "@/assets/hero-21.jpg";
+import emailjs from "@emailjs/browser"; // ✅ ADDED
 
 const benefits = [
   "Access to major industrial projects",
@@ -34,38 +35,46 @@ const Partner = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch("http://localhost/api/partner-create.php", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+    console.log("FORM SUBMITTED"); // ✅ debug
+
+    const templateParams = {
+      name: formData.contactPerson,      // ✅ mapped
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+      subject: "Partner Registration",
+      type: "Partner Form",
+      companyName: formData.companyName,
+      companyType: formData.companyType,
+      servicesOffered: formData.servicesOffered,
+    };
+
+    console.log("Sending EmailJS...", templateParams);
+
+    emailjs.send(
+    "service_udti8fh",      // your service ID
+        "template_tbb7pwu",     // your template ID
+        templateParams,
+        "PJjiIp0BJy7MvDJy8"      // ⚠️ replace
+    )
+    .then(() => {
+      console.log("SUCCESS ✅");
+      toast.success("Partner registration submitted successfully");
+
+      setFormData({
+        companyName: "",
+        contactPerson: "",
+        email: "",
+        phone: "",
+        companyType: "",
+        servicesOffered: "",
+        message: "",
       });
-
-      const result = await res.json();
-      console.log("Partner API Response:", result);
-
-      if (result.success) {
-        toast.success("Partner registration submitted successfully");
-
-        setFormData({
-          companyName: "",
-          contactPerson: "",
-          email: "",
-          phone: "",
-          companyType: "",
-          servicesOffered: "",
-          message: "",
-        });
-      } else {
-        toast.error("Submission failed. Please try again.");
-      }
-    } catch (err) {
-      console.error(err);
-      toast.error("Unable to connect to server");
-    }
+    })
+    .catch((error) => {
+      console.log("ERROR ❌", error);
+      toast.error("Submission failed. Please try again.");
+    });
   };
 
   return (
@@ -76,7 +85,7 @@ const Partner = () => {
         {/* Hero Section */}
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center mt-[120px]">
           <div className="absolute inset-0">
-            <img src={hero2} alt="Become a Partner" className="w-full h-full object-cover" />
+            <img src={hero21} alt="Become a Partner" className="w-full h-full object-cover" />
             <div className="absolute inset-0 gradient-overlay" />
           </div>
 
@@ -146,68 +155,43 @@ const Partner = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <Input
-                    required
-                    placeholder="Company Name"
+
+                  <Input required placeholder="Company Name"
                     value={formData.companyName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, companyName: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                   />
 
-                  <Input
-                    required
-                    placeholder="Contact Person"
+                  <Input required placeholder="Contact Person"
                     value={formData.contactPerson}
-                    onChange={(e) =>
-                      setFormData({ ...formData, contactPerson: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
                   />
 
-                  <Input
-                    type="email"
-                    required
-                    placeholder="Email Address"
+                  <Input type="email" required placeholder="Email Address"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
 
-                  <Input
-                    type="tel"
-                    required
-                    placeholder="Phone Number"
+                  <Input type="tel" required placeholder="Phone Number"
                     value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
 
-                  <Input
-                    placeholder="Company Type"
+                  <Input placeholder="Company Type"
                     value={formData.companyType}
-                    onChange={(e) =>
-                      setFormData({ ...formData, companyType: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, companyType: e.target.value })}
                   />
 
-                  <Input
-                    placeholder="Services Offered"
+                  <Input placeholder="Services Offered"
                     value={formData.servicesOffered}
-                    onChange={(e) =>
-                      setFormData({ ...formData, servicesOffered: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, servicesOffered: e.target.value })}
                   />
+
                 </div>
 
-                <Textarea
-                  placeholder="Additional Message"
+                <Textarea placeholder="Additional Message"
                   rows={4}
                   value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
 
                 <div className="text-center">
@@ -215,6 +199,7 @@ const Partner = () => {
                     Submit Registration
                   </Button>
                 </div>
+
               </form>
             </div>
           </div>

@@ -7,13 +7,12 @@ import { MapPin } from "lucide-react";
 /* Hero */
 import hero3 from "@/assets/hero-3.jpg";
 
-/* Completed Project Images */
+/* Completed Project Images (FIX EXTENSIONS IF NEEDED) */
 import kgpImg from "@/assets/projects/completed/kgp.png";
 import tubularImg from "@/assets/projects/completed/tubular-pipe-coating.jpeg";
-import apocImg from "@/assets/projects/completed/apoc-project.jpeg";
-import aramcoTrainingImg from "@/assets/projects/completed/aramco-training-center.jpeg";
+import apocImg from "@/assets/projects/completed/apoc-project.png";
+import aramcoTrainingImg from "@/assets/projects/completed/aramco-training-center.png";
 import kingSalmanImg from "@/assets/projects/completed/king-salman-maritime.jpeg";
-import pumpStationImg from "@/assets/projects/completed/pump-station-khurais.jpeg";
 import khafjiImg from "@/assets/projects/completed/khafji-joint-operation.jpeg";
 import gccLabImg from "@/assets/projects/completed/gcc-lab.jpeg";
 import omsImg from "@/assets/projects/completed/oms-project.jpeg";
@@ -29,133 +28,33 @@ const projects = [
 
 /* Completed */
 
-{
-image: kgpImg,
-title: "KGP Project",
-location: "Khursaniya",
-category: "Civil",
-status: "Completed",
-year: "2023",
-},
+{ image: kgpImg, position:"object-[center_40%]", title:"KGP Project", location:"Khursaniya", category:"Civil", status:"Completed", year:"2023" },
 
-{
-image: tubularImg,
-title: "Tubular Pipe Coating",
-location: "Dammam",
-category: "Industrial",
-status: "Completed",
-year: "2023",
-},
+{ image: tubularImg, position:"object-[center_30%]", title:"Tubular Pipe Coating", location:"Dammam", category:"Industrial", status:"Completed", year:"2023" },
 
-{
-image: apocImg,
-title: "APOC Project",
-location: "Jubail",
-category: "Industrial",
-status: "Completed",
-year: "2025",
-},
+{ image: apocImg, position:"object-[center_50%]", title:"APOC Project", location:"Jubail", category:"Industrial", status:"Completed", year:"2025" },
 
-{
-image: aramcoTrainingImg,
-title: "Aramco Training Center",
-location: "Ras Tanura",
-category: "Construction",
-status: "Completed",
-year: "2024",
-},
+{ image: aramcoTrainingImg, position:"object-[center_35%]", title:"Aramco Training Center", location:"Ras Tanura", category:"Construction", status:"Completed", year:"2024" },
 
-{
-image: kingSalmanImg,
-title: "King Salman Maritime Project",
-location: "Ras Al Khair",
-category: "Infrastructure",
-status: "Completed",
-year: "2026",
-},
+{ image: kingSalmanImg, position:"object-[center_30%]", title:"King Salman Maritime Project", location:"Ras Al Khair", category:"Infrastructure", status:"Completed", year:"2026" },
 
-{
-image: pumpStationImg,
-title: "Pump Station 3 Khurais",
-location: "Khurais",
-category: "Construction",
-status: "Completed",
-year: "2022",
-},
+{ image: khafjiImg, position:"object-[center_40%]", title:"Khafji Joint Operation", location:"Khafji", category:"Industrial", status:"Completed", year:"2023" },
 
-{
-image: khafjiImg,
-title: "Khafji Joint Operation",
-location: "Khafji",
-category: "Industrial",
-status: "Completed",
-year: "2023",
-},
+{ image: gccLabImg, position:"object-[center_35%]", title:"GCC Lab", location:"Dammam", category:"Construction", status:"Completed", year:"2023" },
 
-{
-image: gccLabImg,
-title: "GCC Lab",
-location: "Dammam",
-category: "Construction",
-status: "Completed",
-year: "2023",
-},
+{ image: omsImg, position:"object-[center_30%]", title:"OMS Project", location:"Dammam", category:"Maintenance", status:"Completed", year:"2025" },
 
-{
-image: omsImg,
-title: "OMS Project",
-location: "Dammam",
-category: "Maintenance",
-status: "Completed",
-year: "2025",
-},
-
-{
-image: janaImg,
-title: "JANA Project",
-location: "Jubail",
-category: "Maintenance",
-status: "Completed",
-year: "2026",
-},
+{ image: janaImg, position:"object-[center_40%]", title:"JANA Project", location:"Jubail", category:"Maintenance", status:"Completed", year:"2026" },
 
 /* Ongoing */
 
-{
-image: pumpStation2,
-title: "Pump Station-2",
-location: "Khurais",
-category: "Construction",
-status: "Ongoing",
-year: "2024",
-},
+{ image: pumpStation2, position:"object-[center_40%]", title:"Pump Station-2", location:"Khurais", category:"Construction", status:"Ongoing", year:"2024" },
 
-{
-image: kingSalmanPort,
-title: "King Salman Mina Port",
-location: "Ras Al Khair",
-category: "Industrial",
-status: "Ongoing",
-year: "2024",
-},
+{ image: kingSalmanPort, position:"object-[center_30%]", title:"King Salman Mina Port", location:"Ras Al Khair", category:"Industrial", status:"Ongoing", year:"2024" },
 
-{
-image: abuAliPlant,
-title: "Abu Ali Increasement Plant",
-location: "Abu Ali Island",
-category: "Industrial",
-status: "Ongoing",
-year: "2024",
-},
+{ image: abuAliPlant, position:"object-[center_45%]", title:"Abu Ali Increasement Plant", location:"Abu Ali Island", category:"Industrial", status:"Ongoing", year:"2024" },
 
-{
-image: janaPlant,
-title: "Jana Soda Chemical Plant",
-location: "Jubail",
-category: "Maintenance",
-status: "Ongoing",
-year: "2025",
-},
+{ image: janaPlant, position:"object-[center_35%]", title:"Nama Soda Chemical Plant", location:"Jubail", category:"Maintenance", status:"Ongoing", year:"2025" },
 
 ];
 
@@ -217,38 +116,11 @@ Engineering Excellence Across Industries
 
 <div className="flex gap-4 bg-white shadow-md p-2 rounded-full">
 
-<button
-onClick={()=>setFilter("All")}
-className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-filter==="All"
-? "bg-primary text-white shadow-md scale-105"
-: "bg-gray-100 text-gray-700 hover:bg-primary hover:text-white"
-}`}
->
-All
-</button>
+<button onClick={()=>setFilter("All")} className={`px-8 py-3 rounded-full font-semibold ${filter==="All"?"bg-primary text-white":"bg-gray-100"}`}>All</button>
 
-<button
-onClick={()=>setFilter("Ongoing")}
-className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-filter==="Ongoing"
-? "bg-primary text-white shadow-md scale-105"
-: "bg-gray-100 text-gray-700 hover:bg-primary hover:text-white"
-}`}
->
-Ongoing
-</button>
+<button onClick={()=>setFilter("Ongoing")} className={`px-8 py-3 rounded-full font-semibold ${filter==="Ongoing"?"bg-primary text-white":"bg-gray-100"}`}>Ongoing</button>
 
-<button
-onClick={()=>setFilter("Completed")}
-className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-filter==="Completed"
-? "bg-primary text-white shadow-md scale-105"
-: "bg-gray-100 text-gray-700 hover:bg-primary hover:text-white"
-}`}
->
-Completed
-</button>
+<button onClick={()=>setFilter("Completed")} className={`px-8 py-3 rounded-full font-semibold ${filter==="Completed"?"bg-primary text-white":"bg-gray-100"}`}>Completed</button>
 
 </div>
 
@@ -276,13 +148,14 @@ transition={{delay:index*0.1}}
 className="card-industrial overflow-hidden group"
 >
 
+{/* ✅ IMAGE FIX */}
 <div className="relative h-64 overflow-hidden">
-
 <img
 src={project.image}
 alt={project.title}
-className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+className={`w-full h-full object-cover ${project.position} group-hover:scale-110 transition-transform duration-500`}
 />
+</div>
 
 <div className="absolute top-4 left-4 flex gap-2">
 
@@ -293,8 +166,6 @@ className="w-full h-full object-cover group-hover:scale-110 transition-transform
 <span className={`px-3 py-1 text-xs rounded ${project.status==="Ongoing"?"bg-green-500 text-white":"bg-gray-200"}`}>
 {project.status}
 </span>
-
-</div>
 
 </div>
 

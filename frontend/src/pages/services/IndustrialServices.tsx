@@ -122,7 +122,7 @@ const IndustrialServices = () => {
               className="max-w-4xl mx-auto text-center mb-16"
             >
               <h2 className="text-4xl font-heading font-bold text-foreground mb-6">
-                Comprehensive Industrial Support
+                Comprehensive Industrial Services
               </h2>
 
               <p className="text-lg text-muted-foreground">

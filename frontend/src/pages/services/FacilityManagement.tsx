@@ -7,14 +7,14 @@ import heroFacility from "@/assets/facility.jpg";
 
 /* Facility Images */
 import housekeepingImg from "@/assets/services/facility/housekeeping.jpeg";
-import staffImg from "@/assets/services/facility/staff-management.jpeg";
+import staffImg from "@/assets/services/facility/staff-management.png";
 import maintenanceImg from "@/assets/services/facility/maintenance-repairs.jpeg";
 import securityImg from "@/assets/services/facility/security.jpeg";
 import environmentImg from "@/assets/services/facility/environmental.jpeg";
 import hvacImg from "@/assets/services/facility/hvac.jpeg";
 import cleaningImg from "@/assets/services/facility/cleaning.jpeg";
 import wasteImg from "@/assets/services/facility/waste-management.jpeg";
-import landscapingImg from "@/assets/services/facility/landscaping.jpeg";
+import landscapingImg from "@/assets/services/facility/landscaping.png";
 import assetImg from "@/assets/services/facility/asset-management.jpeg";
 
 const services = [

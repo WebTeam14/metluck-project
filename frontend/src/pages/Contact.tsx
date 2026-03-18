@@ -13,6 +13,9 @@ import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
+/* ✅ EMAILJS ADDED */
+import emailjs from "@emailjs/browser";
+
 /* Office Images */
 import dubaiImg from "@/assets/Picture1.png";
 import jubailImg from "@/assets/Picture1.png";
@@ -23,8 +26,8 @@ import lucknowImg from "@/assets/Picture1.png";
 const contactInfo = [
   { icon: MapPin, title: "Address", details: ["Al Jubail Industrial City", "Kingdom of Saudi Arabia"] },
   { icon: Phone, title: "Phone", details: ["+966 133613681"] },
-  { icon: Mail, title: "Email", details: ["info@metluckgroup.com.sa"] },
-  { icon: Clock, title: "Working Hours", details: ["Sunday - Thursday", "8:00 AM - 5:00 PM"] },
+  { icon: Mail, title: "Email", details: ["info@metluckgroup.com"] },
+  { icon: Clock, title: "Working Hours", details: ["Sunday - Thursday", "7:30 AM - 5:00 PM"] },
 ];
 
 /* ---------------- OFFICE LOCATIONS ---------------- */
@@ -87,18 +90,26 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost/api/create.php", {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    console.log("FORM SUBMITTED");
 
-    const result = await res.json();
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      message: formData.message,
+      type: "Contact Form",
+    };
 
-    if (result.success) {
+    try {
+      await emailjs.send(
+        "service_udti8fh",      // your service ID
+        "template_tbb7pwu",     // your template ID
+        templateParams,
+        "PJjiIp0BJy7MvDJy8"     // your public key
+      );
+
+      console.log("SUCCESS ✅");
       toast.success("Message sent successfully");
 
       setFormData({
@@ -108,7 +119,9 @@ const Contact = () => {
         subject: "",
         message: "",
       });
-    } else {
+
+    } catch (error) {
+      console.log("ERROR ❌", error);
       toast.error("Something went wrong");
     }
   };
@@ -205,36 +218,26 @@ const Contact = () => {
                   icon={redDotIcon}
                 >
 
-                  {/* HOVER IMAGE */}
                   <Tooltip direction="top" offset={[0, -10]} opacity={1}>
-
                     <img
                       src={office.image}
                       alt={office.name}
                       className="w-40 h-28 object-cover rounded-md"
                     />
-
                   </Tooltip>
 
-                  {/* POPUP */}
                   <Popup>
-
                     <div className="text-center">
-
                       <img
                         src={office.image}
                         alt={office.name}
                         className="w-44 h-28 object-cover rounded-md mb-2 mx-auto"
                       />
-
                       <h3 className="font-bold">{office.name}</h3>
-
                       <p className="text-sm text-muted-foreground">
                         {office.address}
                       </p>
-
                     </div>
-
                   </Popup>
 
                 </Marker>
@@ -254,52 +257,31 @@ const Contact = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
 
-                  <Input
-                    required
-                    placeholder="Full Name"
+                  <Input required placeholder="Full Name"
                     value={formData.name}
-                    onChange={e =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={e => setFormData({ ...formData, name: e.target.value })}
                   />
 
-                  <Input
-                    required
-                    type="email"
-                    placeholder="Email Address"
+                  <Input required type="email" placeholder="Email Address"
                     value={formData.email}
-                    onChange={e =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={e => setFormData({ ...formData, email: e.target.value })}
                   />
 
-                  <Input
-                    placeholder="Phone Number"
+                  <Input placeholder="Phone Number"
                     value={formData.phone}
-                    onChange={e =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    onChange={e => setFormData({ ...formData, phone: e.target.value })}
                   />
 
-                  <Input
-                    required
-                    placeholder="Subject"
+                  <Input required placeholder="Subject"
                     value={formData.subject}
-                    onChange={e =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
+                    onChange={e => setFormData({ ...formData, subject: e.target.value })}
                   />
 
                 </div>
 
-                <Textarea
-                  required
-                  rows={6}
-                  placeholder="Your Message"
+                <Textarea required rows={6} placeholder="Your Message"
                   value={formData.message}
-                  onChange={e =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  onChange={e => setFormData({ ...formData, message: e.target.value })}
                 />
 
                 <div className="text-center">

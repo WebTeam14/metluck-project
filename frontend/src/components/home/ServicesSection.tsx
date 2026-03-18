@@ -20,7 +20,7 @@ import {
 /* Service Images */
 import industrialImg from "@/assets/industrial.png";
 import manufacturingImg from "@/assets/Picture2.png";
-import engineeringImg from "@/assets/engineer.jpg";
+import engineeringImg from "@/assets/engineer.png";
 import equipmentImg from "@/assets/equipment.jpg";
 import civilImg from "@/assets/civil.jpg";
 import facilityImg from "@/assets/facility.jpg";

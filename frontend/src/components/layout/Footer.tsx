@@ -98,7 +98,7 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a href="mailto:info@metluckgroup.com.sa" className="footer-link">
-                  info@metluckgroup.com.sa
+                  info@metluckgroup.com
                 </a>
               </li>
             </ul>

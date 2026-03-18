@@ -6,56 +6,56 @@ import { ArrowRight } from "lucide-react";
 import heroequipment from "@/assets/equipment.jpg";
 
 /* Equipment Images */
-import backhoeImg from "@/assets/services/equipment/backhoe.jpeg";
-import bulldozerImg from "@/assets/services/equipment/bulldozer.jpeg";
-import excavatorImg from "@/assets/services/equipment/excavator.jpeg";
-import craneImg from "@/assets/services/equipment/crane.jpeg";
-import forkliftImg from "@/assets/services/equipment/forklift.jpeg";
-import dumpTruckImg from "@/assets/services/equipment/dump-truck.jpeg";
-import MobileCraneImg from "@/assets/services/equipment/mobile-crane.jpeg";
-import waterPumpImg from "@/assets/services/equipment/water-pump.jpeg";
+import backhoeImg from "@/assets/services/equipment/backhoe.png";
+import bulldozerImg from "@/assets/services/equipment/bulldozer.webp";
+import excavatorImg from "@/assets/services/equipment/excavator.png";
+import craneImg from "@/assets/services/equipment/crane.png";
+import forkliftImg from "@/assets/services/equipment/forklift.jpg";
+import dumpTruckImg from "@/assets/services/equipment/dump-truck.png";
+import mobileCraneImg from "@/assets/services/equipment/mobile-crane.jpeg";
+import waterPumpImg from "@/assets/services/equipment/dewatering-pump.jpg";
 
 const equipment = [
-{
-img: backhoeImg,
-title: "Backhoe Loaders (JCB Type)",
-description: "Versatile backhoe loaders for excavation and construction work."
-},
-{
-img: bulldozerImg,
-title: "Bulldozers (D6–D10)",
-description: "Heavy-duty bulldozers for earthmoving and land clearing."
-},
-{
-img: excavatorImg,
-title: "Excavators",
-description: "Powerful excavation equipment for industrial and infrastructure projects."
-},
-{
-img: craneImg,
-title: "Mobile Cranes (25–240 Ton)",
-description: "Certified mobile cranes for lifting heavy industrial loads."
-},
-{
-img: forkliftImg,
-title: "Forklifts & Loaders",
-description: "Material handling equipment including skid steer loaders."
-},
-{
-img: dumpTruckImg,
-title: "Dump Trucks & Flatbeds",
-description: "Transportation vehicles for materials and heavy equipment."
-},
-{
-img: MobileCraneImg,
-title: "Trailers & Tanker Trucks",
-description: "Heavy-duty trailers and tanker trucks for logistics."
-},
-{
-img: waterPumpImg,
-title: "Water Pumps & Service Trucks",
-description: "Water pumping equipment and service vehicles for site support."
-}
+  {
+    img: backhoeImg,
+    title: "Backhoe Loaders",
+    description: "Versatile backhoe loaders for excavation and construction work."
+  },
+  {
+    img: bulldozerImg,
+    title: "Bulldozers (D6–D10)",
+    description: "Heavy-duty bulldozers for earthmoving and land clearing."
+  },
+  {
+    img: excavatorImg,
+    title: "Excavators",
+    description: "Powerful excavation equipment for industrial and infrastructure projects."
+  },
+  {
+    img: craneImg,
+    title: "Crane",
+    description: "Certified mobile cranes for lifting heavy industrial loads."
+  },
+  {
+    img: forkliftImg,
+    title: "Forklifts & Loaders",
+    description: "Material handling equipment including skid steer loaders."
+  },
+  {
+    img: dumpTruckImg,
+    title: "Dump Trucks & Flatbeds",
+    description: "Transportation vehicles for materials and heavy equipment."
+  },
+  {
+    img: mobileCraneImg,
+    title: "Mobile Cranes (25–240 Ton)",
+    description: "Heavy-duty trailers and tanker trucks for logistics."
+  },
+  {
+    img: waterPumpImg,
+    title: "Dewatering Pumps & Service Trucks",
+    description: "Water pumping equipment and service vehicles for site support."
+  }
 ];
 
 const EquipmentRental = () => {
@@ -136,31 +136,31 @@ for reliability and safety.
 {equipment.map((item, index) => (
 
 <motion.div
-key={item.title}
-initial={{ opacity: 0, y: 30 }}
-whileInView={{ opacity: 1, y: 0 }}
-viewport={{ once: true }}
-transition={{ delay: index * 0.1 }}
-className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition hover:-translate-y-2"
+  key={item.title}
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: index * 0.1 }}
+  className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition hover:-translate-y-2"
 >
 
-<img
-src={item.img}
-alt={item.title}
-className="w-full h-48 object-cover"
-/>
+  <div className="w-full h-56 bg-gray-50 flex items-center justify-center overflow-hidden">
+    <img
+      src={item.img}
+      alt={item.title}
+      className="max-h-full max-w-full object-contain"
+    />
+  </div>
 
-<div className="p-6 text-center">
+  <div className="p-6 text-center">
+    <h3 className="text-xl font-heading font-bold text-foreground mb-3">
+      {item.title}
+    </h3>
 
-<h3 className="text-xl font-heading font-bold text-foreground mb-3">
-{item.title}
-</h3>
-
-<p className="text-muted-foreground text-sm">
-{item.description}
-</p>
-
-</div>
+    <p className="text-muted-foreground text-sm">
+      {item.description}
+    </p>
+  </div>
 
 </motion.div>
 

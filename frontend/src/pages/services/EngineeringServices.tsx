@@ -3,17 +3,17 @@ import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroEngineer from "@/assets/engineer.jpg";
+import engineeringImg from "@/assets/engineer.png";
 
 /* Service Images */
 import civilImg from "@/assets/services/engineering/civil-construction.jpeg";
 import steelImg from "@/assets/services/engineering/steel-fabrication.jpeg";
-import mechanicalImg from "@/assets/services/engineering/mechanical-erection.jpeg";
-import pipingImg from "@/assets/services/engineering/piping-fabrication.jpeg";
-import electricalImg from "@/assets/services/engineering/electrical-instrument.jpeg";
+import mechanicalImg from "@/assets/services/engineering/mechanical-erection.png";
+import pipingImg from "@/assets/services/engineering/piping-fabrication.png";
+import electricalImg from "@/assets/services/engineering/electrical-instrument.png";
 import paintingImg from "@/assets/services/engineering/painting.jpeg";
-import frpImg from "@/assets/services/engineering/frp-piping.jpeg";
-import commissioningImg from "@/assets/services/engineering/pre-commissioning.jpeg";
+import frpImg from "@/assets/services/engineering/frp-piping.png";
+import commissioningImg from "@/assets/services/engineering/pre-commissioning.png";
 
 const services = [
 {
@@ -39,7 +39,7 @@ description: "Industrial piping fabrication and erection services."
 {
 img: frpImg,
 title: "FRP / GRP / GRE / HDPE Piping Installation",
-description: "Installation of corrosion resistant piping systems."
+description: "Installation of Fabrication, piping and Maintenance systems."
 },
 {
 img: electricalImg,
@@ -70,7 +70,7 @@ const EngineeringServices = () => {
 
           <div className="absolute inset-0">
             <img
-              src={heroEngineer}
+              src={engineeringImg}
               alt="Engineering & Construction"
               className="w-full h-full object-cover"
             />
@@ -93,7 +93,7 @@ const EngineeringServices = () => {
               transition={{ delay: 0.2 }}
               className="text-xl text-primary-foreground/80"
             >
-              End-to-End EPC Solutions
+              End-to-End Project Management Solutions
             </motion.p>
 
           </div>
@@ -114,7 +114,7 @@ const EngineeringServices = () => {
             >
 
               <h2 className="text-4xl font-heading font-bold text-foreground mb-6">
-                Complete EPC Solutions
+                Complete Project Management Solutions
               </h2>
 
               <p className="text-lg text-muted-foreground">
