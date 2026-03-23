@@ -8,7 +8,7 @@ import hero3 from "@/assets/hero-3.jpg";
 import pumpStation2 from "@/assets/projects/ongoing/pump-station.jpeg";
 import kingSalmanPort from "@/assets/projects/ongoing/king-salman-mina-port.jpeg";
 import abuAliPlant from "@/assets/projects/ongoing/abu-ali-increasement.jpeg";
-import janaPlant from "@/assets/projects/ongoing/jana-soda-plant.jpeg";
+import janaPlant from "@/assets/projects/ongoing/jana-soda-plant.png";
 
 const projects = [
   {

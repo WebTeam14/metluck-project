@@ -11,7 +11,7 @@ import kgpImg from "@/assets/projects/completed/kgp.png";
 import tubularImg from "@/assets/projects/completed/tubular-pipe-coating.jpeg";
 import apocImg from "@/assets/projects/completed/apoc-project.png";
 import gccLabImg from "@/assets/projects/completed/gcc-lab.jpeg";
-import janaImg from "@/assets/projects/completed/jana-project.jpeg";
+import janaImg from "@/assets/projects/completed/jana-project.png";
 import khafjiImg from "@/assets/projects/completed/khafji-joint-operation.jpeg";
 import kingSalmanImg from "@/assets/projects/completed/king-salman-maritime.jpeg";
 import omsImg from "@/assets/projects/completed/oms-project.jpeg";

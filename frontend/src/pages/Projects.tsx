@@ -16,13 +16,13 @@ import kingSalmanImg from "@/assets/projects/completed/king-salman-maritime.jpeg
 import khafjiImg from "@/assets/projects/completed/khafji-joint-operation.jpeg";
 import gccLabImg from "@/assets/projects/completed/gcc-lab.jpeg";
 import omsImg from "@/assets/projects/completed/oms-project.jpeg";
-import janaImg from "@/assets/projects/completed/jana-project.jpeg";
+import janaImg from "@/assets/projects/completed/jana-project.png";
 
 /* Ongoing Images */
 import pumpStation2 from "@/assets/projects/ongoing/pump-station.jpeg";
 import kingSalmanPort from "@/assets/projects/ongoing/king-salman-mina-port.jpeg";
 import abuAliPlant from "@/assets/projects/ongoing/abu-ali-increasement.jpeg";
-import janaPlant from "@/assets/projects/ongoing/jana-soda-plant.jpeg";
+import janaPlant from "@/assets/projects/ongoing/jana-soda-plant.png";
 
 const projects = [
 

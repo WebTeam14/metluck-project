@@ -71,28 +71,28 @@ const Presence = () => {
               />
 
               {/* Saudi Arabia Pin */}
-              <div className="absolute top-[45%] left-[55%] flex flex-col items-center group">
+              {/* <div className="absolute top-[45%] left-[55%] flex flex-col items-center group">
                 <MapPin className="text-red-500 w-7 h-7 animate-bounce" />
                 <span className="text-xs bg-primary text-white px-2 py-1 rounded mt-1 opacity-0 group-hover:opacity-100">
                   Saudi Arabia
                 </span>
-              </div>
+              </div> */}
 
               {/* India Pin */}
-              <div className="absolute top-[50%] left-[70%] flex flex-col items-center group">
+              {/* <div className="absolute top-[50%] left-[70%] flex flex-col items-center group">
                 <MapPin className="text-red-500 w-7 h-7 animate-bounce" />
                 <span className="text-xs bg-primary text-white px-2 py-1 rounded mt-1 opacity-0 group-hover:opacity-100">
                   India
                 </span>
-              </div>
+              </div> */}
 
               {/* Middle East Pin */}
-              <div className="absolute top-[42%] left-[60%] flex flex-col items-center group">
+              {/* <div className="absolute top-[42%] left-[60%] flex flex-col items-center group">
                 <MapPin className="text-red-500 w-7 h-7 animate-bounce" />
                 <span className="text-xs bg-primary text-white px-2 py-1 rounded mt-1 opacity-0 group-hover:opacity-100">
                   Middle East
                 </span>
-              </div>
+              </div> */}
             </motion.div>
 
             {/* Description */}
