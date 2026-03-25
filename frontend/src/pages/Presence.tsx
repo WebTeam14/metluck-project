@@ -17,7 +17,7 @@ const locations = [
   },
   {
     title: "India",
-    city: "Mumbai",
+    city: "Lucknow",
     description:
       "Operations supporting infrastructure development, real estate projects, engineering services, and supply chain management.",
     projects: "80+ Projects",

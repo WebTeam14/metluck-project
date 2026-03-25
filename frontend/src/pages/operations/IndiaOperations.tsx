@@ -12,6 +12,7 @@ const projects = [
 ];
 
 const locations = [
+  "Saudi Arabia",
   "Mumbai",
   "Delhi NCR",
   "Bangalore",
@@ -63,14 +64,14 @@ const IndiaOperations = () => {
                   Real Estate Development in India
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Our India operations focus on real estate development including residential, 
+                  Our India operations focus on real estate development including residential,
                   commercial, and mixed-use projects across major metropolitan areas.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  With a deep understanding of the Indian real estate market and construction 
+                  With a deep understanding of the Indian real estate market and construction
                   landscape, we deliver quality developments that meet international standards.
                 </p>
-                
+
                 <h3 className="text-xl font-heading font-bold text-foreground mb-4">Presence Across India</h3>
                 <div className="grid grid-cols-2 gap-3">
                   {locations.map((location) => (
